@@ -1,0 +1,15 @@
+﻿@model CollectionMaxAndMinItemsModel
+<h3 class="text-center">Collection Max And Min Items</h3>
+<div>
+    <form asp-action="CollectionMaxAndMinItems" asp-controller="CollectionValidation">
+        <label asp-for="Collection" class="form-label"></label><br />
+        @for (int i = 0; i < 10; i++)
+        {
+            @*<input name="Collection" type="text" placeholder="Food@(i)" class="mt-1"/><br />*@ @*For text text box*@
+            <input name="Collection" type="checkbox" value="Food@(i)"/><span> Food @i</span><br />
+        }
+        <span asp-validation-for="Collection" class="text-danger"></span>
+        <input type="submit" value="Submit" class="btn btn-success mt-2 w-100"/>
+    </form>
+</div>
+<code>For this Sample 5 - 3 Items</code>

@@ -1,0 +1,11 @@
+﻿@model DivisibilityModel
+<h3 class="text-center">Divisibility</h3>
+<div>
+    <form asp-action="Divisibility" asp-controller="MathValidation">
+        <label asp-for="Number" class="form-label"></label>
+        <input asp-for="Number" class="form-control"/>
+        <span asp-validation-for="Number" class="text-danger"></span>
+        <input type="submit" value="Submit" class="btn btn-success mt-2 w-100"/>
+    </form>
+</div>
+<code>For this Sample 3 or 5 or 8</code>

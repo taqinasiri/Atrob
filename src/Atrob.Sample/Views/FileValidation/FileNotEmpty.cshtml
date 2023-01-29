@@ -1,0 +1,10 @@
+﻿@model FileNotEmptyModel
+<h3 class="text-center">File Not Empty</h3>
+<div>
+    <form asp-action="FileNotEmpty" asp-controller="FileValidation" enctype="multipart/form-data">
+        <label asp-for="File" class="form-label"></label>
+        <input asp-for="File" class="form-control"/>
+        <span asp-validation-for="File" class="text-danger"></span>
+        <input type="submit" value="Submit" class="btn btn-primary mt-2 w-100"/>
+    </form>
+</div>
