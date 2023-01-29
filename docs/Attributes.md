@@ -1,6 +1,5 @@
 # Attributes
 
-<<<<<<< HEAD
 - [File Validations](FileValidation.md)
     -  [File Required](FileValidation.md#filerequired)
     -  [File Not Empty](FileValidation.md#filenotempty)
@@ -18,22 +17,3 @@
     -  [Divisibility](MathValidation.md#divisibility)
 - [Variable Validations](VariableValidation.md)
     -  [BoolRequired](VariableValidation.md#boolrequired)
-=======
-- [File Validations](FileValidation.md")
-    -  [File Required](filevalidation.md/#filerequired)
-    -  [File Not Empty](filevalidation.md/#filenotempty)
-    -  [Max File Size](filevalidation.md/#maxfilesize)
-    -  [Min File Size](filevalidation.md/#minfilesize)
-    -  [Max And Min File Size](filevalidation.md/#maxandminfilesize)
-    -  [Allowed File Extensions](filevalidation.md/#allowedfileextensions)
-    -  [Not Allowed File Extensions](filevalidation.md/#notallowedfileextensions)
-- [Collection Validations](CollectionValidation.md")
-    -  [Collection Count Items](collectionvalidation.md/#collectioncountitems)
-    -  [Collection Max Items](collectionvalidation.md/#collectionmaxitems)
-    -  [Collection Min Items](collectionvalidation.md/#collectionminitems)
-    -  [Collection Max And Min Items](collectionvalidation.md/#collectionmaxandminitems)
-- [Math Validations](MathValidation.md")
-    -  [Divisibility](mathvalidation.md/#divisibility)
-- [Variable Validations](VariableValidation.md)
-    -  [BoolRequired](variablevalidation.md/#boolrequired)
->>>>>>> 8d2cdeb (Add README and docs)
