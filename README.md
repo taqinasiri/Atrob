@@ -12,11 +12,7 @@ To install Atrob, run the following command in the Package Manager Console :
 ```powershell
 PM> Install-Package Atrob
 ```
-<<<<<<< HEAD
 ## [List of attributes](/docs/Attributes.md " List of attributes") 🔗
-=======
-##[ List of attributes](/docs/Attributes " List of attributes") 🔗
->>>>>>> 8d2cdeb (Add README and docs)
 
 ## Client Validation
 Some attributes include user side validation, follow the steps below to add it
@@ -29,8 +25,4 @@ Some attributes include user side validation, follow the steps below to add it
 ```
 <script src="~/js/Atrob.js"></script>
 ```
-<<<<<<< HEAD
 Adding client-side validations is done!
-=======
-Adding client-side validations is done!
->>>>>>> 8d2cdeb (Add README and docs)
