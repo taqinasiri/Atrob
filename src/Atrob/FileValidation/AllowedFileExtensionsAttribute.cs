@@ -23,8 +23,7 @@ public class AllowedFileExtensionsAttribute : ValidationAttributeBase, IClientMo
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        if (file is not null && !AllowedContentTypes.Contains(file.ContentType)) return false;
-        return true;
+        return (file is not null && !AllowedContentTypes.Contains(file.ContentType))? false : true;
     }
 
     /// <inheritdoc/>
