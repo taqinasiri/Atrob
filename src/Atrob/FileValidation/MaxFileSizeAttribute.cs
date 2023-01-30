@@ -23,8 +23,7 @@ public class MaxFileSizeAttribute : ValidationAttributeBase, IClientModelValidat
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        if (file is not null && file.Length > MaxFileSize) return false;
-        return true;
+        return (file is not null && file.Length > MaxFileSize) ? false : true;
     }
 
     /// <inheritdoc/>

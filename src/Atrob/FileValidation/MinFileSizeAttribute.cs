@@ -23,8 +23,7 @@ public class MinFileSizeAttribute : ValidationAttributeBase, IClientModelValidat
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        if (file is not null && file.Length < MinFileSize) return false;
-        return true;
+        return (file is not null && file.Length < MinFileSize) ? false : true;
     }
 
     /// <inheritdoc/>

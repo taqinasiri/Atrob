@@ -25,8 +25,7 @@ public class DivisibilityAttribute : ValidationAttributeBase, IClientModelValida
         try
         {
             var number = (int)(value ?? 0);
-            if (NumbersDivisible.FirstOrDefault(n => number % n == 0) == 0) return false;
-            return true;
+            return (NumbersDivisible.FirstOrDefault(n => number % n == 0) == 0) ? false : true;
         }
         catch (InvalidCastException)
         {
