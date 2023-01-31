@@ -35,8 +35,7 @@ public class MaxAndMinFileSizeAttribute : ValidationAttributeBase, IClientModelV
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        if (file is not null && (file.Length > MaxFileSize || file.Length < MinFileSize)) return false;
-        return true;
+        return (file is not null && (file.Length > MaxFileSize || file.Length < MinFileSize)) ? false : true;
     }
 
     /// <inheritdoc/>

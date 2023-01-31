@@ -14,8 +14,7 @@ public class FileNotEmptyAttribute : ValidationAttributeBase, IClientModelValida
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        if (file is not null && file.Length == 0) return false;
-        return true;
+        return (file is not null && file.Length == 0) ? false : true;
     }
 
     /// <inheritdoc/>

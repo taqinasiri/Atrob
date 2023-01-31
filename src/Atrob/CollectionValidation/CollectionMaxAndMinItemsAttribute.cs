@@ -43,8 +43,7 @@ public class CollectionMaxAndMinItemsAttribute : ValidationAttributeBase
     {
         var collection = value as IEnumerable<object>;
         if (IsRemoveNulls) collection = collection?.Where(i => i != null);
-        if (collection?.Count() < CollectionMaxItems || collection?.Count() > CollectionMinItems) return false;
-        return true;
+        return (collection?.Count() < CollectionMaxItems || collection?.Count() > CollectionMinItems) ? false : true;
     }
 
     /// <inheritdoc/>

@@ -16,8 +16,7 @@ public class BoolRequiredAttribute : ValidationAttributeBase, IClientModelValida
         try
         {
             var status = (bool)(value ?? false);
-            if (!status) return false;
-            return true;
+            return status;
         }
         catch (InvalidCastException)
         {
