@@ -1,23 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Authors>MohammadTaqiNasiri</Authors>
+		<PackageProjectUrl>https://github.com/NasiriMohammadTaqi/Atrob</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/NasiriMohammadTaqi/Atrob</RepositoryUrl>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<Title>Atrob</Title>
+		<Description>Add more validation attributes to Asp.net core project</Description>
+		<PackageTags>.NETCore;Attribute;ValidationAttribute;Validation;Asp.net</PackageTags>
+		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+		<PackageId>Atrob</PackageId>
+		<Version>1.0.1</Version>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <Authors>MohammadTaqiNasiri</Authors>
-    <PackageProjectUrl>https://github.com/NasiriMohammadTaqi/Atrob</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/NasiriMohammadTaqi/Atrob</RepositoryUrl>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Title>Atrob</Title>
-    <Description>Add more validation attributes to Asp.net core project</Description>
-    <PackageTags>.NETCore;Attribute;ValidationAttribute;Validation;Asp.net</PackageTags>
-    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <PackageId>Atrob</PackageId>
-    <Version>1.0.1</Version>
-  </PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
   </ItemGroup>
-
 </Project>

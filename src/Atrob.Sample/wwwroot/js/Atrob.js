@@ -80,3 +80,38 @@ jQuery.validator.addMethod('boolValidation', function (value, element, param) {
     return $(element)[0].checked;
 });
 jQuery.validator.unobtrusive.adapters.addBool('boolValidation');
+
+
+//maxDateTimeValidation
+jQuery.validator.addMethod('maxDateTime', function (value, element, param) {
+    var maxDateTime = new Date($(element).data('val-maxdatetimevalue'));
+    var dateTime = new Date(element.value);
+    return maxDateTime >= dateTime;
+});
+jQuery.validator.unobtrusive.adapters.addBool('maxDateTime');
+
+
+//minDateTimeValidation
+jQuery.validator.addMethod('minDateTime', function (value, element, param) {
+    var minDateTime = new Date($(element).data('val-mindatetimevalue'));
+    var dateTime = new Date(element.value);
+    return minDateTime <= dateTime;
+});
+jQuery.validator.unobtrusive.adapters.addBool('minDateTime');
+
+//maxDate
+jQuery.validator.addMethod('maxDate', function (value, element, param) {
+    var maxDate = new Date($(element).data('val-maxdatevalue'));
+    var date = new Date(element.value);
+    return maxDate.getDate() >= date.getDate();
+});
+jQuery.validator.unobtrusive.adapters.addBool('maxDate');
+
+
+//minDate
+jQuery.validator.addMethod('minDate', function (value, element, param) {
+    var maxDate = new Date($(element).data('val-mindatevalue'));
+    var date = new Date(element.value);
+    return maxDate.getDate() <= date.getDate();
+});
+jQuery.validator.unobtrusive.adapters.addBool('minDate');

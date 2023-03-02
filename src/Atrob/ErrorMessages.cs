@@ -19,4 +19,8 @@ public static class ErrorMessages
     public const string CollectionMaxItemsErrorMessage = "You cannot select than {1} items for {0}.";
     public const string CollectionMinItemsErrorMessage = "You cannot select less than {1} items for {0}.";
     public const string CollectionMaxAndMinItemsErrorMessage = "You have to choose between {1} - {2} items for {0}.";
+    public const string MinDateTimeErrorMessage = "{0} cannot be earlier than {1}.";
+    public const string MaxDateTimeErrorMessage = "{0} cannot be later than {1}.";
+    public const string MinDateErrorMessage = "{0} cannot be earlier than {1}.";
+    public const string MaxDateErrorMessage = "{0} cannot be later than {1}.";
 }
