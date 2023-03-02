@@ -62,7 +62,7 @@ public IFormFile File { get; set; }
 public IFormFile File { get; set; }
 ```
 
-## MaxAndMinFileSize
+## RangeFileSize
 - **Client validation ✔** 
 - Determines the maximum and minimum file size
 - **parameters**
@@ -76,6 +76,8 @@ public IFormFile File { get; set; }
 [MaxAndMinFileSize(1.5,0.5)]
 public IFormFile File { get; set; }
 ```
+
+ > Until version 1.0.1 it was called **MaxAndMinFileSize**
 
 ## AllowedFileExtensions
 - **Client validation ✔** 

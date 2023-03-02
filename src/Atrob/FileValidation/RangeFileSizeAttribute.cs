@@ -5,7 +5,7 @@ namespace Atrob.FileValidation;
 /// <summary>
 ///  Checks the maximum and minimum number size that a file can have
 /// </summary>
-public class MaxAndMinFileSizeAttribute : ValidationAttributeBase, IClientModelValidator
+public class RangeFileSizeAttribute : ValidationAttributeBase, IClientModelValidator
 {
     /// <summary>
     /// Maximum file size in bytes
@@ -18,12 +18,12 @@ public class MaxAndMinFileSizeAttribute : ValidationAttributeBase, IClientModelV
     public double MaxFileSize { get; private set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="MaxAndMinFileSizeAttribute"/> class.
+    /// Initializes a new instance of the <see cref="RangeFileSizeAttribute"/> class.
     /// </summary>
     /// <param name="maxFileSize"> Maximum file size in megabytes</param>
     /// <param name="minFileSize">Minimum file size in megabytes</param>
     /// <exception cref="ArgumentException">If the <paramref name="minFileSize"/> is greater than the <paramref name="maxFileSize"/></exception>
-    public MaxAndMinFileSizeAttribute(double maxFileSize, double minFileSize) : base(ErrorMessages.MaxAndMinFileSizeErrorMessage)
+    public RangeFileSizeAttribute(double maxFileSize, double minFileSize) : base(ErrorMessages.MaxAndMinFileSizeErrorMessage)
     {
         if (minFileSize >= maxFileSize)
             throw new ArgumentException($"{minFileSize} cannot be less than or equal to {maxFileSize}");
