@@ -30,7 +30,7 @@ public class CollectionMaxItemsAttribute : ValidationAttributeBase
     {
         var collection = value as IEnumerable<object>;
         if (IsRemoveNulls) collection = collection?.Where(i => i != null);
-        return (collection?.Count() > CollectionMaxItems) ? false : true;
+        return collection?.Count() <= CollectionMaxItems;
     }
 
     /// <inheritdoc/>

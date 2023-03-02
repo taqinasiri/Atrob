@@ -25,7 +25,7 @@ public class DivisibilityAttribute : ValidationAttributeBase, IClientModelValida
         try
         {
             var number = (int)(value ?? 0);
-            return (NumbersDivisible.FirstOrDefault(n => number % n == 0) == 0) ? false : true;
+            return NumbersDivisible.FirstOrDefault(n => number % n == 0) != 0;
         }
         catch (InvalidCastException)
         {
@@ -37,7 +37,7 @@ public class DivisibilityAttribute : ValidationAttributeBase, IClientModelValida
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-divisibility", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-divisibility", FormatErrorMessage(context.ModelMetadata.DisplayName!));
         context.MergeAttribute("data-val-numbersdivisible", string.Join(',', NumbersDivisible));
     }
 

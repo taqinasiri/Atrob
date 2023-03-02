@@ -33,8 +33,8 @@ public class CollectionMaxAndMinItemsAttribute : ValidationAttributeBase
     {
         if (collectionMinItems >= collectionMaxItems)
             throw new ArgumentException($"{nameof(collectionMinItems)} cannot be less than or equal to {nameof(collectionMaxItems)}");
-        CollectionMaxItems = collectionMinItems;
-        CollectionMinItems = collectionMaxItems;
+        CollectionMaxItems = collectionMaxItems;
+        CollectionMinItems = collectionMinItems;
         IsRemoveNulls = isRemoveNulls;
     }
 
@@ -43,7 +43,7 @@ public class CollectionMaxAndMinItemsAttribute : ValidationAttributeBase
     {
         var collection = value as IEnumerable<object>;
         if (IsRemoveNulls) collection = collection?.Where(i => i != null);
-        return (collection?.Count() < CollectionMaxItems || collection?.Count() > CollectionMinItems) ? false : true;
+        return collection?.Count() <= CollectionMaxItems && collection?.Count() >= CollectionMinItems;
     }
 
     /// <inheritdoc/>

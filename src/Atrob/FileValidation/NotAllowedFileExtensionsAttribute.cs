@@ -23,14 +23,14 @@ public class NotAllowedFileExtensionsAttribute : ValidationAttributeBase, IClien
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        return (file is not null && NotAllowedContentTypes.Contains(file.ContentType)) ? false : true;
+        return file is null || !NotAllowedContentTypes.Contains(file.ContentType);
     }
 
     /// <inheritdoc/>
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-notAllowedExtensions", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-notAllowedExtensions", FormatErrorMessage(context.ModelMetadata.DisplayName!));
         context.MergeAttribute("data-val-blacklistextensions", string.Join(',', NotAllowedContentTypes));
     }
 

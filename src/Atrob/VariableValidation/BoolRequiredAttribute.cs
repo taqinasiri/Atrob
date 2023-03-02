@@ -15,8 +15,7 @@ public class BoolRequiredAttribute : ValidationAttributeBase, IClientModelValida
     {
         try
         {
-            var status = (bool)(value ?? false);
-            return status;
+            return (bool)(value ?? false);
         }
         catch (InvalidCastException)
         {
@@ -27,7 +26,7 @@ public class BoolRequiredAttribute : ValidationAttributeBase, IClientModelValida
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-boolValidation", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-boolValidation", FormatErrorMessage(context.ModelMetadata.DisplayName!));
     }
 }
 

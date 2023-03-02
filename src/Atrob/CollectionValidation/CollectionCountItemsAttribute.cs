@@ -30,7 +30,7 @@ public class CollectionCountItemsAttribute : ValidationAttributeBase
     {
         var collection = value as IEnumerable<object>;
         if (IsRemoveNulls) collection = collection?.Where(i => i != null);
-        return (collection?.Count() != CollectionCountItems) ? false : true;
+        return (collection?.Count() == CollectionCountItems);
     }
 
     /// <inheritdoc/>

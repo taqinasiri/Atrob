@@ -30,7 +30,7 @@ public class CollectionMinItemsAttribute : ValidationAttributeBase
     {
         var collection = value as IEnumerable<object>;
         if (IsRemoveNulls) collection = collection?.Where(i => i != null);
-        return (collection?.Count() < CollectionMinItems) ? false : true;
+        return collection?.Count() >= CollectionMinItems;
     }
 
     /// <inheritdoc/>

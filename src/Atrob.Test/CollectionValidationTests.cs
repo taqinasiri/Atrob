@@ -52,7 +52,7 @@ public class CollectionValidationTests
     [InlineData(5, 3, 4)]
     [InlineData(8, 2, 7)]
     [InlineData(7, 3, 8,false)]
-    [InlineData(7, 3, 2,false)]
+    [InlineData(7, 3, 1,false)]
     public void CollectionMaxAndMinItemsAttributeTest(int validMaxItems, int validMinItems, int selectedItems, bool result = true)
     {
         //arrange

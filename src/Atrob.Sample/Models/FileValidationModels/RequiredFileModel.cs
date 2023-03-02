@@ -6,5 +6,5 @@ public class RequiredFileModel
 {
     [Display(Name = "Avatar")]
     [FileRequired(ErrorMessage = "please upload your {0}")]
-    public IFormFile File { get; set; }
+    public IFormFile File { get; set; } = null!;
 }

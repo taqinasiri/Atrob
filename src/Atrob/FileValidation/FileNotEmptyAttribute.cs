@@ -14,14 +14,14 @@ public class FileNotEmptyAttribute : ValidationAttributeBase, IClientModelValida
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        return (file is not null && file.Length == 0) ? false : true;
+        return file is null || file.Length != 0;
     }
 
     /// <inheritdoc/>
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-fileNotEmpty", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-fileNotEmpty", FormatErrorMessage(context.ModelMetadata.DisplayName!));
     }
 }
 
