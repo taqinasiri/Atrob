@@ -71,7 +71,7 @@ public int Number { get; set; }
 public int Number { get; set; }
 ```
 
-## CollectionMaxAndMinItems
+## CollectionRangeItems
 - **Client validation ❌** 
 - Checks the maximum and minimum items in the collection
 - **parameters**
@@ -86,3 +86,5 @@ public int Number { get; set; }
 [CollectionMaxAndMinItems(5,3)]
 public int Number { get; set; }
 ```
+
+ > Until version 1.0.1 it was called **CollectionMaxAndMinItems**
