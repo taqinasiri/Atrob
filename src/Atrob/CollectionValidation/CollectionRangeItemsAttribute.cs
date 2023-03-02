@@ -5,7 +5,7 @@ namespace Atrob.CollectionValidation;
 /// <summary>
 /// Checks the maximum and minimum number of members a collection can have
 /// </summary>
-public class CollectionMaxAndMinItemsAttribute : ValidationAttributeBase
+public class CollectionRangeItemsAttribute : ValidationAttributeBase
 {
     /// <summary>
     /// The maximum number of items the collection can have
@@ -23,13 +23,13 @@ public class CollectionMaxAndMinItemsAttribute : ValidationAttributeBase
     public bool IsRemoveNulls { get; private set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CollectionMaxAndMinItemsAttribute"/> class.
+    /// Initializes a new instance of the <see cref="CollectionRangeItemsAttribute"/> class.
     /// </summary>
     /// <param name="collectionMaxItems">The maximum number of items the collection can have</param>
     /// <param name="collectionMinItems">The minimum number of items the collection can have</param>
     /// <param name="isRemoveNulls">Remove null items before validation</param>
     /// <exception cref="ArgumentException">If the <paramref name="collectionMinItems"/> is greater than the <paramref name="collectionMaxItems"/></exception>
-    public CollectionMaxAndMinItemsAttribute(int collectionMaxItems, int collectionMinItems, bool isRemoveNulls = true) : base(ErrorMessages.CollectionMaxAndMinItemsErrorMessage)
+    public CollectionRangeItemsAttribute(int collectionMaxItems, int collectionMinItems, bool isRemoveNulls = true) : base(ErrorMessages.CollectionMaxAndMinItemsErrorMessage)
     {
         if (collectionMinItems >= collectionMaxItems)
             throw new ArgumentException($"{nameof(collectionMinItems)} cannot be less than or equal to {nameof(collectionMaxItems)}");

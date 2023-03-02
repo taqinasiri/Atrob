@@ -6,6 +6,6 @@ public class MaxAndMinFileSizeModel
 {
     [Display(Name = "Avatar")]
     //[MaxAndMinFileSize(1,2)] //throw Exception
-    [MaxAndMinFileSize(1, 0.5)]
+    [RangeFileSize(1, 0.5)]
     public IFormFile? File { get; set; }
 }

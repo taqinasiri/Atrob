@@ -56,7 +56,7 @@ public class CollectionValidationTests
     public void CollectionMaxAndMinItemsAttributeTest(int validMaxItems, int validMinItems, int selectedItems, bool result = true)
     {
         //arrange
-        var attribute = new CollectionMaxAndMinItemsAttribute(validMaxItems, validMinItems);
+        var attribute = new CollectionRangeItemsAttribute(validMaxItems, validMinItems);
         var collection = DataStore.GenerateIEnumerable(selectedItems);
         //act
         var isValid = attribute.IsValid(collection);
@@ -67,5 +67,5 @@ public class CollectionValidationTests
     [Theory]
     [InlineData(2,8)]
     public void CollectionMaxAndMinItemsAttributeArgumentErrorTest(int validMaxItems, int validMinItems)
-        => Assert.Throws<ArgumentException>(() => new CollectionMaxAndMinItemsAttribute(validMaxItems, validMinItems));
+        => Assert.Throws<ArgumentException>(() => new CollectionRangeItemsAttribute(validMaxItems, validMinItems));
 }
