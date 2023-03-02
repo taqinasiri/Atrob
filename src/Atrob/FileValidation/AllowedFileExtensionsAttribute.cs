@@ -23,14 +23,14 @@ public class AllowedFileExtensionsAttribute : ValidationAttributeBase, IClientMo
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        return (file is not null && !AllowedContentTypes.Contains(file.ContentType))? false : true;
+        return file is null || AllowedContentTypes.Contains(file.ContentType);
     }
 
     /// <inheritdoc/>
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-allowedExtensions", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-allowedExtensions", FormatErrorMessage(context.ModelMetadata.DisplayName!));
         context.MergeAttribute("data-val-whitelistextensions", string.Join(',', AllowedContentTypes));
     }
 

@@ -23,14 +23,14 @@ public class MaxFileSizeAttribute : ValidationAttributeBase, IClientModelValidat
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        return (file is not null && file.Length > MaxFileSize) ? false : true;
+        return file is null || file.Length < MaxFileSize;
     }
 
     /// <inheritdoc/>
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-maxFileSize", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-maxFileSize", FormatErrorMessage(context.ModelMetadata.DisplayName!));
         context.MergeAttribute("data-val-maxsize", MaxFileSize.ToString());
     }
 

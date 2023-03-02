@@ -35,14 +35,14 @@ public class MaxAndMinFileSizeAttribute : ValidationAttributeBase, IClientModelV
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        return (file is not null && (file.Length > MaxFileSize || file.Length < MinFileSize)) ? false : true;
+        return file is null || (file.Length < MaxFileSize && file.Length > MinFileSize);
     }
 
     /// <inheritdoc/>
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-maxAndMinFileSize", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-maxAndMinFileSize", FormatErrorMessage(context.ModelMetadata.DisplayName!));
         context.MergeAttribute("data-val-maxsize", MaxFileSize.ToString());
         context.MergeAttribute("data-val-minsize", MinFileSize.ToString());
     }

@@ -23,14 +23,14 @@ public class MinFileSizeAttribute : ValidationAttributeBase, IClientModelValidat
     public override bool IsValid(object? value)
     {
         var file = value as IFormFile;
-        return (file is not null && file.Length < MinFileSize) ? false : true;
+        return file is null || file.Length > MinFileSize;
     }
 
     /// <inheritdoc/>
     public void AddValidation(ClientModelValidationContext context)
     {
         context.MergeAttribute("data-val", "true");
-        context.MergeAttribute("data-val-minFileSize", FormatErrorMessage(context.ModelMetadata.DisplayName));
+        context.MergeAttribute("data-val-minFileSize", FormatErrorMessage(context.ModelMetadata.DisplayName!));
         context.MergeAttribute("data-val-minsize", MinFileSize.ToString());
     }
 
