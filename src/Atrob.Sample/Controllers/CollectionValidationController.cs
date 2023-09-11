@@ -1,4 +1,5 @@
 ﻿using Atrob.Validations.Collection;
+using System.ComponentModel.DataAnnotations;
 
 namespace Atrob.Sample.Controllers;
 
@@ -9,8 +10,12 @@ public class CollectionValidationController : ControllerBase
     /// <summary>
     /// Max Items : 5
     /// </summary>
-    /// <param name="names"></param>
-    /// <returns></returns>
     [HttpPost]
     public IActionResult CollectionMaxItems([CollectionMaxItems(5)] List<string>? names) => Ok();
+
+    /// <summary>
+    /// Min Items : 5
+    /// </summary>
+    [HttpPost]
+    public IActionResult CollectionMinItems([CollectionMinItems(5)] List<string>? names) => Ok();
 }
