@@ -1,0 +1,66 @@
+﻿:root {
+    --color1: #2C3333;
+    --color2: #2E4F4F;
+    --color3: #0E8388;
+    --color4: #CBE4DE;
+}
+
+* {
+    color: var(--color4) !important;
+}
+
+body {
+    background-color: var(--color1);
+}
+
+select {
+    background-color: var(--color1) !important;
+}
+
+    select > option {
+        background-color: var(--color1) !important;
+    }
+
+.scheme-container {
+    background-color: var(--color1) !important;
+}
+
+.opblock-section-header {
+    background-color: var(--color1) !important;
+    box-shadow: 0 2px 3px rgba(203,228,222,0.1) !important;
+    transition: 0.5s ease;
+}
+
+input, textarea {
+    background-color: var(--color1) !important;
+    border: 1px solid var(--color4) !important;
+}
+
+.modal-ux-content {
+    background-color: var(--color1) !important;
+}
+
+.modal-ux-header {
+    background-color: var(--color1) !important;
+}
+
+code {
+    color: #22ac92 !important;
+}
+
+.model-container {
+    border: none;
+    box-shadow: 0 0 3px var(--color4);
+    transition: 0.5s ease;
+}
+
+.property-row {
+    border-bottom: 1px solid var(--color4);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.response {
+    border-top: 1px solid var(--color4);
+}
