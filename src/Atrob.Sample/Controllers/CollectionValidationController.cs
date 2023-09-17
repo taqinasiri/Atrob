@@ -18,4 +18,10 @@ public class CollectionValidationController : ControllerBase
     /// </summary>
     [HttpPost]
     public IActionResult MinCollectionItems([MinCollectionItems(5)] List<string>? names) => Ok();
+
+    /// <summary>
+    /// Max Items : 10 | Min Items : 5
+    /// </summary>
+    [HttpPost]
+    public IActionResult RangeCollectionItems([RangeCollectionItems(10,5)] List<string>? names) => Ok();
 }
