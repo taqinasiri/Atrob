@@ -5,27 +5,27 @@ using System.Globalization;
 namespace Atrob.Validations.Collection;
 
 /// <summary>
-/// Checks the maximum number of members a set can have
+/// Checks the minimum number of members a set can have
 /// </summary>
-public class CollectionMaxItemsAttribute : ValidationAttributeBase
+public class MinCollectionItemsAttribute : ValidationAttributeBase
 {
     /// <summary>
-    /// Collection max items
+    /// Collection min items
     /// </summary>
-    public int MaxItems { get; init; }
+    public int MinItems { get; init; }
     /// <summary>
     /// Remove null items before validation
     /// </summary>
     public bool IsRemoveNulls { get; private set; }
 
     /// <summary>
-    /// Checks the maximum number of members a set can have
+    /// Checks the minimum number of members a set can have
     /// </summary>
-    /// <param name="maxItems">Collection max items</param>
+    /// <param name="minItems">Collection min items</param>
     /// <param name="isRemoveNulls">Remove null items before validation</param>
-    public CollectionMaxItemsAttribute(int maxItems,bool isRemoveNulls = true) : base(ValidationErrorMessages.CollectionMaxItemsErrorMessage)
+    public MinCollectionItemsAttribute(int minItems,bool isRemoveNulls = true) : base(ValidationErrorMessages.MinCollectionItemsErrorMessage)
     {
-        MaxItems = maxItems;
+        MinItems = minItems;
         IsRemoveNulls = isRemoveNulls;
     }
 
@@ -38,10 +38,10 @@ public class CollectionMaxItemsAttribute : ValidationAttributeBase
         if(IsRemoveNulls)
             collection = collection?.RemoveNulls();
 
-        return collection?.Count() <= MaxItems;
+        return collection?.Count() >= MinItems;
     }
 
     /// <inheritdoc/>
     public override string FormatErrorMessage(string name)
-        => string.Format(CultureInfo.CurrentCulture,ErrorMessageString,name,MaxItems);
+        => string.Format(CultureInfo.CurrentCulture,ErrorMessageString,name,MinItems);
 }

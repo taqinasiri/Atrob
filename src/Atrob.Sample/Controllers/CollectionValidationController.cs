@@ -11,11 +11,11 @@ public class CollectionValidationController : ControllerBase
     /// Max Items : 5
     /// </summary>
     [HttpPost]
-    public IActionResult CollectionMaxItems([CollectionMaxItems(5)] List<string>? names) => Ok();
+    public IActionResult MaxCollectionItems([MaxCollectionItems(5)] List<string>? names) => Ok();
 
     /// <summary>
     /// Min Items : 5
     /// </summary>
     [HttpPost]
-    public IActionResult CollectionMinItems([CollectionMinItems(5)] List<string>? names) => Ok();
+    public IActionResult MinCollectionItems([MinCollectionItems(5)] List<string>? names) => Ok();
 }
