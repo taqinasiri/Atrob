@@ -11,7 +11,7 @@ internal static class ValidationErrorMessages
     public const string RangeFileSizeErrorMessage = "{0} should be between {1} - {2} {3}.";
     public const string FileNotEmptyErrorMessage = "{0} cannot be an empty file.";
     public const string DivisibilityErrorMessage = "{0} must be divisible by {1}.";
-    public const string BoolValidationErrorMessage = "Tick {0} is required.";
+    public const string TrueRequiredErrorMessage = "Check {0} is required.";
     public const string CollectionCountItemsErrorMessage = "You can choose {1} items for {0}.";
     public const string MaxCollectionItemsErrorMessage = "You cannot select than {1} items for {0}.";
     public const string MinCollectionItemsErrorMessage = "You cannot select less than {1} items for {0}.";
