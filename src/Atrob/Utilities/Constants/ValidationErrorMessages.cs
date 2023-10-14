@@ -16,8 +16,8 @@ internal static class ValidationErrorMessages
     public const string MaxCollectionItemsErrorMessage = "You cannot select than {1} items for {0}.";
     public const string MinCollectionItemsErrorMessage = "You cannot select less than {1} items for {0}.";
     public const string RangeCollectionItemsErrorMessage = "You have to choose between {1} - {2} items for {0}.";
-    public const string MinDateTimeErrorMessage = "{0} cannot be earlier than {1}.";
-    public const string MaxDateTimeErrorMessage = "{0} cannot be later than {1}.";
-    public const string MinDateErrorMessage = "{0} cannot be earlier than {1}.";
-    public const string MaxDateErrorMessage = "{0} cannot be later than {1}.";
+    public const string MinDateTimeErrorMessage = "{0} cannot be before {1}.";
+    public const string MaxDateTimeErrorMessage = "{0} cannot be after {1}.";
+    public const string MinDateErrorMessage = "{0} cannot be before {1}.";
+    public const string MaxDateErrorMessage = "{0} cannot be after {1}.";
 }
