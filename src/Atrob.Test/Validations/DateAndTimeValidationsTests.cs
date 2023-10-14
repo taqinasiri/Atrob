@@ -200,7 +200,7 @@ public class DateAndTimeValidationsTests
     [InlineData(true,22,30,15,16,30,15)]
     [InlineData(false,22,30,15,22,30,16)]
     [InlineData(false,22,30,15,23,30,15)]
-    public void Max_Time_Year_Month_Day_Constructor_Test(bool expectedResult,int exHour,int exMinute,int exSecond,int hour,int minute,int second)
+    public void Max_Time_Hour_Minute_Second_Constructor_Test(bool expectedResult,int exHour,int exMinute,int exSecond,int hour,int minute,int second)
     {
         //arrange
         var attribute = new MaxTimeAttribute(exHour,exMinute,exSecond);
@@ -305,4 +305,137 @@ public class DateAndTimeValidationsTests
     }
 
     #endregion Min Time
+
+    #region Max DateTime
+
+    [Theory]
+    [InlineData(true,0,0)]
+    [InlineData(true,-1,0)]
+    [InlineData(true,-1,50)]
+    [InlineData(false,2,-20)]
+    [InlineData(false,5,5)]
+    public void Max_DateTime_Default_Constructor_Test(bool expectedResult,int addDays,int addSeconds)
+    {
+        //arrange
+        var attribute = new MaxDateTimeAttribute();
+        //act
+        var isValid = attribute.IsValid(DateTime.Now.AddDays(addDays).AddSeconds(addSeconds));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    [Theory]
+    [InlineData(true,10,0,0,0)]
+    [InlineData(true,10,50,5,100)]
+    [InlineData(true,10,5,-1000,-5000)]
+    [InlineData(false,10,10,11,0)]
+    [InlineData(false,10,50,10,60)]
+    public void Max_DateTime_AddDays_AddSeconds_Constructor_Test(bool expectedResult,int exAddDays,int exAddSeconds,int addDays,int addSeconds)
+    {
+        //arrange
+        var attribute = new MaxDateTimeAttribute(exAddDays,exAddSeconds);
+        //act
+        var isValid = attribute.IsValid(DateTime.Now.AddDays(addDays).AddSeconds(addSeconds));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    [Theory]
+    [InlineData(true,2023,10,14,22,30,15,2023,10,14,22,30,15)]
+    [InlineData(true,2023,10,14,22,30,15,2023,5,14,22,30,20)]
+    [InlineData(true,2023,10,14,22,30,15,2016,5,14,10,15,30)]
+    [InlineData(false,2023,10,14,22,30,15,2023,12,14,18,20,15)]
+    [InlineData(false,2023,10,14,22,30,15,2025,12,14,10,13,15)]
+    public void Max_DateTime_Year_Month_Day_Hour_Minute_Second_Constructor_Test(bool expectedResult,int exYear,int exMonth,int exHour,int exMinute,int exSecond,int exDay,int year,int month,int day,int hour,int minute,int second)
+    {
+        //arrange
+        var attribute = new MaxDateTimeAttribute(exYear,exMonth,exDay,exHour,exMinute,exSecond);
+        //act
+        var isValid = attribute.IsValid(new DateTime(year,month,day,hour,minute,second));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    [Theory]
+    [InlineData(true,"2023/10/14 22:30:15",2023,10,14,22,30,15)]
+    [InlineData(true,"2023/10/14 22:30:15",2023,5,14,22,30,20)]
+    [InlineData(true,"2023/10/14 22:30:15",2016,5,14,10,15,30)]
+    [InlineData(false,"2023/10/14 22:30:15",2023,12,14,18,20,15)]
+    [InlineData(false,"2023/10/14 22:30:15",2025,12,14,10,13,15)]
+    public void Max_DateTime_StringDate_Constructor_Test(bool expectedResult,string date,int year,int month,int day,int hour,int minute,int second)
+    {
+        //arrange
+        var attribute = new MaxDateTimeAttribute(date);
+        //act
+        var isValid = attribute.IsValid(new DateTime(year,month,day,hour,minute,second));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    #endregion Max DateTime
+
+    #region Min DateTime
+
+    [Theory]
+    [InlineData(true,2,-20)]
+    [InlineData(true,5,5)]
+    [InlineData(false,-1,0)]
+    [InlineData(false,-1,50)]
+    public void Min_DateTime_Default_Constructor_Test(bool expectedResult,int addDays,int addSeconds)
+    {
+        //arrange
+        var attribute = new MinDateTimeAttribute();
+        //act
+        var isValid = attribute.IsValid(DateTime.Now.AddDays(addDays).AddSeconds(addSeconds));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    [Theory]
+    [InlineData(true,10,10,11,0)]
+    [InlineData(true,10,50,10,60)]
+    [InlineData(false,10,50,5,100)]
+    [InlineData(false,10,5,-1000,-5000)]
+    public void Min_DateTime_AddDays_AddSeconds_Constructor_Test(bool expectedResult,int exAddDays,int exAddSeconds,int addDays,int addSeconds)
+    {
+        //arrange
+        var attribute = new MinDateTimeAttribute(exAddDays,exAddSeconds);
+        //act
+        var isValid = attribute.IsValid(DateTime.Now.AddDays(addDays).AddSeconds(addSeconds));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    [Theory]
+    [InlineData(true,2023,10,14,22,30,15,2023,12,14,18,20,15)]
+    [InlineData(true,2023,10,14,22,30,15,2025,12,14,10,13,15)]
+    [InlineData(false,2023,10,14,22,30,15,2023,5,14,22,30,20)]
+    [InlineData(false,2023,10,14,22,30,15,2016,5,14,10,15,30)]
+    public void Min_DateTime_Year_Month_Day_Hour_Minute_Second_Constructor_Test(bool expectedResult,int exYear,int exMonth,int exHour,int exMinute,int exSecond,int exDay,int year,int month,int day,int hour,int minute,int second)
+    {
+        //arrange
+        var attribute = new MinDateTimeAttribute(exYear,exMonth,exDay,exHour,exMinute,exSecond);
+        //act
+        var isValid = attribute.IsValid(new DateTime(year,month,day,hour,minute,second));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    [Theory]
+    [InlineData(true,"2023/10/14 22:30:15",2023,10,14,22,30,15)]
+    [InlineData(true,"2023/10/14 22:30:15",2023,12,14,18,20,15)]
+    [InlineData(true,"2023/10/14 22:30:15",2025,12,14,10,13,15)]
+    [InlineData(false,"2023/10/14 22:30:15",2023,5,14,22,30,20)]
+    [InlineData(false,"2023/10/14 22:30:15",2016,5,14,10,15,30)]
+    public void Min_DateTime_StringDate_Constructor_Test(bool expectedResult,string date,int year,int month,int day,int hour,int minute,int second)
+    {
+        //arrange
+        var attribute = new MinDateTimeAttribute(date);
+        //act
+        var isValid = attribute.IsValid(new DateTime(year,month,day,hour,minute,second));
+        //assert
+        Assert.Equal(expectedResult,isValid);
+    }
+
+    #endregion Min DateTime
 }

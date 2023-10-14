@@ -29,4 +29,16 @@ public class DateAndTimeValidationController : ControllerBase
     /// </summary>
     [HttpPost]
     public IActionResult MinTime([MinTime(22,30,15)] TimeOnly time) => Ok();
+
+    /// <summary>
+    /// Max DateTime : 10/14/2023 22:30:15
+    /// </summary>
+    [HttpPost]
+    public IActionResult MaxDateTime([MaxDateTime(2023,10,14,22,30,15)] DateTime dateTime) => Ok();
+
+    /// <summary>
+    /// Min DateTime : 10/14/2023 22:30:15
+    /// </summary>
+    [HttpPost]
+    public IActionResult MinDateTime([MinDateTime(2023,10,14,22,30,15)] DateTime dateTime) => Ok();
 }
