@@ -7,7 +7,11 @@ namespace Atrob.Validations.DateAndTime;
 /// </summary>
 public class MaxTimeAttribute : ValidationAttributeBase
 {
+    /// <summary>
+    /// Maximum time allowed
+    /// </summary>
     public TimeOnly MaxTime { get; private set; }
+
     private bool _isNow = false;
     private int _addSeconds = 0;
 

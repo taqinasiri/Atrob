@@ -7,7 +7,11 @@ namespace Atrob.Validations.DateAndTime;
 /// </summary>
 public class MaxDateAttribute : ValidationAttributeBase
 {
+    /// <summary>
+    /// Maximum date allowed
+    /// </summary>
     public DateOnly MaxDate { get; private set; }
+
     private bool _isNow = false;
     private int _addDays = 0;
 

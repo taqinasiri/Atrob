@@ -12,8 +12,6 @@ public class DivisibilityAttribute : ValidationAttributeBase
     /// </summary>
     public int[] NumbersDivisible { get; init; }
 
-    public bool And { get; init; }
-
     /// <summary>
     /// Checks that a number is divisible by numbers
     /// </summary>

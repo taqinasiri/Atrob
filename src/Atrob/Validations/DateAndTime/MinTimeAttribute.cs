@@ -7,7 +7,11 @@ namespace Atrob.Validations.DateAndTime;
 /// </summary>
 public class MinTimeAttribute : ValidationAttributeBase
 {
+    /// <summary>
+    /// Minimum time allowed
+    /// </summary>
     public TimeOnly MinTime { get; private set; }
+
     private bool _isNow = false;
     private int _addSeconds = 0;
 

@@ -7,7 +7,11 @@ namespace Atrob.Validations.DateAndTime;
 /// </summary>
 public class MinDateAttribute : ValidationAttributeBase
 {
+    /// <summary>
+    /// Minimum date allowed
+    /// </summary>
     public DateOnly MinDate { get; private set; }
+
     private bool _isNow = false;
     private int _addDays = 0;
 
