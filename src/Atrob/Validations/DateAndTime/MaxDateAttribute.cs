@@ -7,20 +7,22 @@ namespace Atrob.Validations.DateAndTime;
 /// </summary>
 public class MaxDateAttribute : ValidationAttributeBase
 {
-    public DateOnly MaxDate { get; init; }
+    public DateOnly MaxDate { get; private set; }
+    private bool _isNow = false;
+    private int _addDays = 0;
 
     /// <summary>
     /// Checks the maximum allowed date value | Default : DateTime.Now
     /// </summary>
     public MaxDateAttribute() : base(ValidationErrorMessages.MaxDateErrorMessage)
-        => MaxDate = DateOnly.FromDateTime(DateTime.Now);
+        => _isNow = true;
 
     /// <summary>
     /// Checks the maximum allowed date value
     /// </summary>
     /// <param name="addDays">Add days to now date</param>
     public MaxDateAttribute(int addDays) : base(ValidationErrorMessages.MaxDateErrorMessage)
-        => MaxDate = DateOnly.FromDateTime(DateTime.Now.AddDays(addDays));
+        => _addDays = addDays;
 
     /// <summary>
     /// Checks the maximum allowed date value
@@ -46,6 +48,11 @@ public class MaxDateAttribute : ValidationAttributeBase
             date = DateOnly.FromDateTime((value as DateTime?)!.Value);
         else
             date = (value as DateOnly?)!.Value;
+
+        if(_isNow)
+            MaxDate = DateOnly.FromDateTime(DateTime.Now);
+        else if(_addDays > 0)
+            MaxDate = DateOnly.FromDateTime(DateTime.Now.AddDays(_addDays));
         return MaxDate >= date;
     }
 

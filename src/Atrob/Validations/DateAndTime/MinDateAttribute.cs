@@ -7,20 +7,22 @@ namespace Atrob.Validations.DateAndTime;
 /// </summary>
 public class MinDateAttribute : ValidationAttributeBase
 {
-    public DateOnly MinDate { get; init; }
+    public DateOnly MinDate { get; private set; }
+    private bool _isNow = false;
+    private int _addDays = 0;
 
     /// <summary>
     /// Checks the minimum allowed date value | Default : DateTime.Now
     /// </summary>
     public MinDateAttribute() : base(ValidationErrorMessages.MinDateErrorMessage)
-        => MinDate = DateOnly.FromDateTime(DateTime.Now);
+        => _isNow = true;
 
     /// <summary>
     /// Checks the minimum allowed date value
     /// </summary>
     /// <param name="addDays">Add days to now date</param>
     public MinDateAttribute(int addDays) : base(ValidationErrorMessages.MinDateErrorMessage)
-        => MinDate = DateOnly.FromDateTime(DateTime.Now.AddDays(addDays));
+        => _addDays = addDays;
 
     /// <summary>
     /// Checks the minimum allowed date value
@@ -46,6 +48,11 @@ public class MinDateAttribute : ValidationAttributeBase
             date = DateOnly.FromDateTime((value as DateTime?)!.Value);
         else
             date = (value as DateOnly?)!.Value;
+
+        if(_isNow)
+            MinDate = DateOnly.FromDateTime(DateTime.Now);
+        else if(_addDays > 0)
+            MinDate = DateOnly.FromDateTime(DateTime.Now.AddDays(_addDays));
         return MinDate <= date;
     }
 

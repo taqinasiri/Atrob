@@ -18,6 +18,8 @@ internal static class ValidationErrorMessages
     public const string RangeCollectionItemsErrorMessage = "You have to choose between {1} - {2} items for {0}.";
     public const string MinDateTimeErrorMessage = "{0} cannot be before {1}.";
     public const string MaxDateTimeErrorMessage = "{0} cannot be after {1}.";
-    public const string MinDateErrorMessage = "{0} cannot be before {1}.";
     public const string MaxDateErrorMessage = "{0} cannot be after {1}.";
+    public const string MinDateErrorMessage = "{0} cannot be before {1}.";
+    public const string MaxTimeErrorMessage = "{0} cannot be after {1}.";
+    public const string MinTimeErrorMessage = "{0} cannot be before {1}.";
 }
