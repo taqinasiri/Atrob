@@ -1,6 +1,4 @@
-﻿using Atrob.Utilities.Constants;
-
-namespace Atrob.Validations.File;
+﻿namespace Atrob.Validations.File;
 
 /// <summary>
 /// Checks that the file is imported and its size is greater than 0 bytes

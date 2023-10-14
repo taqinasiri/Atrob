@@ -1,6 +1,4 @@
-﻿using Atrob.Utilities.Constants;
-
-namespace Atrob.Validations.Variable;
+﻿namespace Atrob.Validations.Variable;
 
 /// <summary>
 /// It checks that a boolean must have the 'true' value

@@ -1,5 +1,4 @@
-﻿using Atrob.Utilities.Constants;
-using Atrob.Utilities.Extensions;
+﻿using Atrob.Utilities.Extensions;
 using System.Globalization;
 
 namespace Atrob.Validations.Collection;
@@ -13,10 +12,12 @@ public class RangeCollectionItemsAttribute : ValidationAttributeBase
     /// Collection min items
     /// </summary>
     public int MinItems { get; init; }
+
     /// <summary>
     /// Collection max items
     /// </summary>
     public int MaxItems { get; init; }
+
     /// <summary>
     /// Remove null items before validation
     /// </summary>

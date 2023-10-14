@@ -1,7 +1,8 @@
 ﻿namespace Atrob.Utilities.Constants;
+
 internal static class MimeTypes
 {
-    public static Dictionary<string, string> Types = new()
+    public static Dictionary<string,string> Types = new()
     {
         {".323", "text/h323"},
         {".3g2", "video/3gpp2"},

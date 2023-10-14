@@ -1,5 +1,4 @@
-﻿using Atrob.Utilities.Constants;
-using Atrob.Utilities.Extensions;
+﻿using Atrob.Utilities.Extensions;
 using System.Globalization;
 
 namespace Atrob.Validations.Collection;
@@ -13,6 +12,7 @@ public class MinCollectionItemsAttribute : ValidationAttributeBase
     /// Collection min items
     /// </summary>
     public int MinItems { get; init; }
+
     /// <summary>
     /// Remove null items before validation
     /// </summary>

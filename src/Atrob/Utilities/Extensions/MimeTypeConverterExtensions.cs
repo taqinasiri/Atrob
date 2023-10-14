@@ -1,6 +1,4 @@
-﻿using Atrob.Utilities.Constants;
-
-namespace Atrob.Utilities.Extensions;
+﻿namespace Atrob.Utilities.Extensions;
 
 internal static class MimeTypeConverterExtensions
 {
@@ -8,5 +6,5 @@ internal static class MimeTypeConverterExtensions
         => MimeTypes.Types.FirstOrDefault(t => t.Value == mimeType.ToLower()).Key;
 
     public static string? GetMimeType(this string extension) =>
-        MimeTypes.Types.TryGetValue(extension, out var mimeType) ? mimeType : null;
+        MimeTypes.Types.TryGetValue(extension,out var mimeType) ? mimeType : null;
 }

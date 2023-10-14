@@ -1,9 +1,10 @@
 ﻿using Atrob.Enums;
 
 namespace Atrob.Utilities.Extensions;
+
 internal static class FileSizeUnitExtensions
 {
-    public static long ToByte(this long size, FileSizeUnit unit) => unit switch
+    public static long ToByte(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size,
         FileSizeUnit.Kilobyte => size.KilobyteToByte(),
@@ -13,7 +14,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long ToKilobyte(this long size, FileSizeUnit unit) => unit switch
+    public static long ToKilobyte(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.ByteToKilobyte(),
         FileSizeUnit.Kilobyte => size,
@@ -23,7 +24,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long ToMegabyte(this long size, FileSizeUnit unit) => unit switch
+    public static long ToMegabyte(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.ByteToMegabyte(),
         FileSizeUnit.Kilobyte => size.KilobyteToMegabyte(),
@@ -33,7 +34,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long ToGigabyte(this long size, FileSizeUnit unit) => unit switch
+    public static long ToGigabyte(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.ByteToGigabyte(),
         FileSizeUnit.Kilobyte => size.KilobyteToGigabyte(),
@@ -43,7 +44,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long ToTerabyte(this long size, FileSizeUnit unit) => unit switch
+    public static long ToTerabyte(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.ByteToTerabyte(),
         FileSizeUnit.Kilobyte => size.KilobyteToTerabyte(),
@@ -53,8 +54,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-
-    public static long ByteTo(this long size, FileSizeUnit unit) => unit switch
+    public static long ByteTo(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size,
         FileSizeUnit.Kilobyte => size.ByteToKilobyte(),
@@ -64,7 +64,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long KilobyteTo(this long size, FileSizeUnit unit) => unit switch
+    public static long KilobyteTo(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.KilobyteToByte(),
         FileSizeUnit.Kilobyte => size,
@@ -74,7 +74,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long MegabyteTo(this long size, FileSizeUnit unit) => unit switch
+    public static long MegabyteTo(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.MegabyteToByte(),
         FileSizeUnit.Kilobyte => size.MegabyteToKilobyte(),
@@ -84,7 +84,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long GigabyteTo(this long size, FileSizeUnit unit) => unit switch
+    public static long GigabyteTo(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.GigabyteToByte(),
         FileSizeUnit.Kilobyte => size.GigabyteToKilobyte(),
@@ -94,7 +94,7 @@ internal static class FileSizeUnitExtensions
         _ => 0
     };
 
-    public static long TerabyteTo(this long size, FileSizeUnit unit) => unit switch
+    public static long TerabyteTo(this long size,FileSizeUnit unit) => unit switch
     {
         FileSizeUnit.Byte => size.TerabyteToByte(),
         FileSizeUnit.Kilobyte => size.TerabyteToKilobyte(),

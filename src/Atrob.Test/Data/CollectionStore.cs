@@ -1,4 +1,5 @@
 ﻿namespace Atrob.Test.Data;
+
 public static class CollectionStore
 {
     public static IEnumerable<string>? GenerateIEnumerable(int allItemsCount,int nullItemsCount = 0)

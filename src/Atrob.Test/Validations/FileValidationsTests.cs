@@ -3,6 +3,7 @@ using Atrob.Validations.File;
 using Microsoft.AspNetCore.Http;
 
 namespace Atrob.Test.Validations;
+
 public class FileValidationsTests
 {
     [Theory]
@@ -53,7 +54,6 @@ public class FileValidationsTests
         Assert.Equal(expectedResult,isValid);
     }
 
-
     [Theory]
     [InlineData(true,50,FileSizeUnit.Byte,100)]
     [InlineData(true,100,FileSizeUnit.Byte,100)]
@@ -98,7 +98,6 @@ public class FileValidationsTests
     public void Range_File_Size_Throw_Exception_Test(int maxSize,int minSize,FileSizeUnit unit)
         => Assert.Throws<ArgumentException>(() => new RangeFileSizeAttribute(maxSize,minSize,unit));
 
-
     [Theory]
     [InlineData(true,false,new string[] { "image/png","image/jpeg" },"image/jpeg",100)]
     [InlineData(true,true,new string[] { ".png",".gif" },"image/gif",100)]
@@ -124,7 +123,6 @@ public class FileValidationsTests
         //assert
         Assert.Equal(expectedResult,isValid);
     }
-
 
     [Theory]
     [InlineData(true,true,new string[] { "png","pdf" },"image/gif",100)]

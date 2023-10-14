@@ -4,7 +4,7 @@
 /// The basis for most Atrob validation classes
 /// </summary>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter,AllowMultiple = false)]
-public abstract class ValidationAttributeBase: ValidationAttribute
+public abstract class ValidationAttributeBase : ValidationAttribute
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ValidationAttribute"/> class.

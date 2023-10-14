@@ -1,4 +1,5 @@
 ﻿namespace Atrob.Enums;
+
 public enum FileSizeUnit
 {
     Byte,

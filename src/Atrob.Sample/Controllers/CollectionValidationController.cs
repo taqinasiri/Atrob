@@ -1,5 +1,4 @@
 ﻿using Atrob.Validations.Collection;
-using System.ComponentModel.DataAnnotations;
 
 namespace Atrob.Sample.Controllers;
 
