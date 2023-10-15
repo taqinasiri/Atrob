@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.Xml;
-
-namespace Atrob.Utilities.Extensions;
+﻿namespace Atrob.Utilities.Extensions;
 
 internal static class Base64Extensions
 {
