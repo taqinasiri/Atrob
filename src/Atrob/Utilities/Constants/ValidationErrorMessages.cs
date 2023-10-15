@@ -27,4 +27,11 @@ internal static class ValidationErrorMessages
     public const string MinDateErrorMessage = "{0} cannot be before {1}.";
     public const string MaxTimeErrorMessage = "{0} cannot be after {1}.";
     public const string MinTimeErrorMessage = "{0} cannot be before {1}.";
+
+    public const string Base64String = "{0} is not Base64 string.";
+    public const string MaxBase64SizeErrorMessage = "{0} cannot be larger than {1} {2}.";
+    public const string MinBase64SizeErrorMessage = "{0} cannot be smaller than {1} {2}.";
+    public const string AllowedBase64FileExtensionsErrorMessage = "{1} extension is allowed for {0}.";
+    public const string NotAllowedBase64FileExtensionsErrorMessage = "{1} extension is not allowed for {0}.";
+    public const string RangeBase64SizeErrorMessage = "{0} should be between {1} - {2} {3}.";
 }
