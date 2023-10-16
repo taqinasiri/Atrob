@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace Atrob.Validations.Base64;
 
+/// <summary>
+/// Checks that the `ContentType` of the imported file is one of the allowed `ContentTypes`
+/// </summary>
 public class AllowedBase64FileExtensionsAttribute : ValidationAttributeBase
 {
     /// <summary>
