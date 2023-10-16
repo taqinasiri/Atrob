@@ -1,12 +1,11 @@
-﻿using Atrob.Sample.Models.VariableValidationModels;
+﻿using Atrob.Validations.Variable;
 
 namespace Atrob.Sample.Controllers;
-public class VariableValidationController : Controller
-{
-    #region BoolRequired
-    public IActionResult BoolRequired() => View();
-    [HttpPost]
-    public IActionResult BoolRequired(BoolRequiredModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
-}
 
+[ApiController]
+[Route("api/[controller]/[action]")]
+public class VariableValidationController : ControllerBase
+{
+    [HttpPost]
+    public IActionResult FileRequired([TrueRequired] bool isTrue) => Ok();
+}

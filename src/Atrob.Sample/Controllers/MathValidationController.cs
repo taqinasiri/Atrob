@@ -1,12 +1,14 @@
-﻿using Atrob.Sample.Models.MathValidationModels;
+﻿using Atrob.Validations.Math;
 
 namespace Atrob.Sample.Controllers;
-public class MathValidationController : Controller
-{
-    #region Divisibility
-    public IActionResult Divisibility() => View();
-    [HttpPost]
-    public IActionResult Divisibility(DivisibilityModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
-}
 
+[ApiController]
+[Route("api/[controller]/[action]")]
+public class MathValidationController : ControllerBase
+{
+    /// <summary>
+    /// Divisibility : 2 , 3
+    /// </summary>
+    [HttpPost]
+    public IActionResult Divisibility([Divisibility(2,3)] int number) => Ok();
+}

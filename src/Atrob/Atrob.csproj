@@ -1,25 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Authors>MohammadTaqiNasiri</Authors>
-		<PackageProjectUrl>https://github.com/NasiriMohammadTaqi/Atrob</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/NasiriMohammadTaqi/Atrob</RepositoryUrl>
-		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<Title>Atrob</Title>
+		<Version>3.0.0</Version>
 		<Description>Add more validation attributes to Asp.net core project</Description>
+		<Authors>Mohammad Taqi Nasiri</Authors>
+		<Copyright>Apache-2.0</Copyright>
+		<PackageIcon>Icon.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/TaqiNasiri/Atrob</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/TaqiNasiri/Atrob</PackageProjectUrl>
 		<PackageTags>.NETCore;Attribute;ValidationAttribute;Validation;Asp.net</PackageTags>
-		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-		<PackageId>Atrob</PackageId>
-		<Version>1.0.1</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Include="..\..\Icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 </Project>

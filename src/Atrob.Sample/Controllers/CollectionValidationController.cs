@@ -1,31 +1,26 @@
-﻿using Atrob.Sample.Models.CollectionValidationModels;
+﻿using Atrob.Validations.Collection;
 
 namespace Atrob.Sample.Controllers;
-public class CollectionValidationController : Controller
+
+[ApiController]
+[Route("api/[controller]/[action]")]
+public class CollectionValidationController : ControllerBase
 {
-    #region CollectionCountItems
-    public IActionResult CollectionCountItems() => View();
+    /// <summary>
+    /// Max Items : 5
+    /// </summary>
     [HttpPost]
-    public IActionResult CollectionCountItems(CollectionCountItemsModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult MaxCollectionItems([MaxCollectionItems(5)] List<string>? names) => Ok();
 
-    #region CollectionMaxItems
-    public IActionResult CollectionMaxItems() => View();
+    /// <summary>
+    /// Min Items : 5
+    /// </summary>
     [HttpPost]
-    public IActionResult CollectionMaxItems(CollectionMaxItemsModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult MinCollectionItems([MinCollectionItems(5)] List<string>? names) => Ok();
 
-    #region CollectionMinItems
-    public IActionResult CollectionMinItems() => View();
+    /// <summary>
+    /// Max Items : 10 | Min Items : 5
+    /// </summary>
     [HttpPost]
-    public IActionResult CollectionMinItems(CollectionMinItemsModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
-
-    #region CollectionMaxAndMinItems
-    public IActionResult CollectionMaxAndMinItems() => View();
-    [HttpPost]
-    public IActionResult CollectionMaxAndMinItems(CollectionMaxAndMinItemsModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
-
+    public IActionResult RangeCollectionItems([RangeCollectionItems(10,5)] List<string>? names) => Ok();
 }
-

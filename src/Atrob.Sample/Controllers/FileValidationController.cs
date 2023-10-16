@@ -1,49 +1,44 @@
-﻿using Atrob.Sample.Models.FileValidationModels;
+﻿using Atrob.Validations.File;
 
-namespace Atrob.Client.Sample.Controllers;
+namespace Atrob.Sample.Controllers;
 
-public class FileValidationController : Controller
+[ApiController]
+[Route("api/[controller]/[action]")]
+public class FileValidationController : ControllerBase
 {
-    #region Required
-    public IActionResult Required() => View();
     [HttpPost]
-    public IActionResult Required(RequiredFileModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult FileRequired([FileRequired] IFormFile file) => Ok();
 
-    #region MaxFileSize
-    public IActionResult MaxFileSize() => View();
     [HttpPost]
-    public IActionResult MaxFileSize(MaxFileSizeModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult FileNotEmpty([FileNotEmpty] IFormFile? file) => Ok();
 
-    #region MinFileSize
-    public IActionResult MinFileSize() => View();
+    ///<summary>
+    /// Max Size : 100 KB
+    ///</summary>
     [HttpPost]
-    public IActionResult MinFileSize(MinFileSizeModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult MaxFileSize([MaxFileSize(100,Enums.FileSizeUnit.Kilobyte,"KB")] IFormFile? file) => Ok();
 
-    #region MaxAndMinFileSize
-    public IActionResult MaxAndMinFileSize() => View();
+    /// <summary>
+    /// Min Size : 100 KB
+    /// </summary>
     [HttpPost]
-    public IActionResult MaxAndMinFileSize(MaxAndMinFileSizeModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult MinFileSize([MinFileSize(100,Enums.FileSizeUnit.Kilobyte,"KB")] IFormFile? file) => Ok();
 
-    #region AllowedFileExtensions
-    public IActionResult AllowedFileExtensions() => View();
+    /// <summary>
+    /// Max Size : 500 KB | Min Size : 50 KB
+    /// </summary>
     [HttpPost]
-    public IActionResult AllowedFileExtensions(AllowedFileExtensionsModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult RangeFileSize([RangeFileSize(500,50,Enums.FileSizeUnit.Kilobyte,"KB")] IFormFile? file) => Ok();
 
-    #region NotAllowedFileExtensions
-    public IActionResult NotAllowedFileExtensions() => View();
+    /// <summary>
+    /// Allowed ContentTypes : image/png , image/jpeg
+    /// </summary>
     [HttpPost]
-    public IActionResult NotAllowedFileExtensions(NotAllowedFileExtensionsModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
+    public IActionResult AllowedFileExtensions([AllowedFileExtensions(false,new[] { "image/png","image/jpeg" })] IFormFile? file) => Ok();
 
-    #region FileNotEmpty
-    public IActionResult FileNotEmpty() => View();
+    /// <summary>
+    /// Not Allowed ContentTypes : image/png , image/jpeg
+    /// </summary>
     [HttpPost]
-    public IActionResult FileNotEmpty(FileNotEmptyModel model) => ModelState.IsValid ? View("Success") : View(model);
-    #endregion
-
+    public IActionResult NotAllowedFileExtensions([NotAllowedFileExtensions(false,new[] { "image/png","image/jpeg" })] IFormFile? file) => Ok();
 }
