@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Title>Atrob</Title>
-		<Version>3.0.0</Version>
+		<Version>4.0.0</Version>
 		<Description>Add more validation attributes to Asp.net core project</Description>
 		<Authors>Mohammad Taqi Nasiri</Authors>
 		<Copyright>Apache-2.0</Copyright>
